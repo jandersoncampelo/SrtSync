@@ -1,5 +1,10 @@
 # SrtSync - Sincronizador de Legendas
-
+### Solução desenvolvida em C# e .NET 5
+### A solução possui três projetos:
+* **SrtSyncLib** - Biblioteca que faz a sincronia da legenda
+* **SrtSyncConsole** - Para testes da biblioteca
+* **SrtSyncTest** - Testes Unitários (**Não implementado**)
+---
 O formato SubRip (.srt) de arquivos de legendas para filmes se tornou bastante popular nos últimos anos, 
 entre outros motivos por sua simplicidade. 
 Segue breve explicação do formato...
@@ -12,10 +17,12 @@ O separador fracionário utilizado é a vírgula, uma vez que o programa foi esc
 
 Exemplo de grupo:
 ---
+```
 168
 00:20:41,150 --> 00:20:45,109
 - How did he do that?
 - Made him an offer he couldn't refuse.
+```
 ---
 Um problema comum enfrentado por usuários de legendas SubRip é a falta de sincronismo entre o áudio
 e timecodes, que na maior parte das vezes pode ser resolvido aplicando-se um deslocamento fixo à
