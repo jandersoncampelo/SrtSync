@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using SrtSyncLib;
 using SrtSyncLib.Model;
 
@@ -9,12 +10,23 @@ namespace SrtSyncConsole
     {
         static void Main(string[] args)
         {
-            var offset = new Offset('-', 0, 0, 25, 0);
-            SrtSync.CarregaArquivo(new StreamReader(@"C:\Users\Janderson\source\repos\SrtSync\SrtSyncConsole\Legenda_Teste.srt"),
-                                   offset,
-                                   @"C:\Users\Janderson\source\repos\SrtSync\SrtSyncConsole\Legenda_Nova.srt");
+            string path = Directory.GetCurrentDirectory() + @"\..\..\..\Legenda_Teste.srt";
+            char sinal = '+';
 
-            Console.WriteLine("Hello World!");
+            int horas = 10;
+            int minutos = 0;
+            int segundos = 0;
+            int milisegundos = 0;
+
+            Random rnd = new Random();
+            string pathDest = Directory.GetCurrentDirectory() + $"\\..\\..\\..\\Legenda_{ rnd.Next(1000, 9999) }.srt";
+
+            var offset = new Offset(sinal, horas, minutos, segundos, milisegundos);
+            SrtSync.CarregaArquivo(new StreamReader(path),
+                                   offset,
+                                   pathDest);
+
+            Console.WriteLine($"A legenda sincronizada foi salva em {pathDest}");
         }
     }
 }

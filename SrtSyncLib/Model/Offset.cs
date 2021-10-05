@@ -16,6 +16,9 @@ namespace SrtSyncLib.Model
 
         public Offset(char sinal, int horas, int minutos, int segundos, int nanosegundos)
         {
+            if ((sinal != '+') && (sinal != '-'))
+                throw new ArgumentOutOfRangeException("Sinal", "Sinal deve ser + ou -");
+
             Sinal = sinal;
             Horas = horas;
             Minutos = minutos;

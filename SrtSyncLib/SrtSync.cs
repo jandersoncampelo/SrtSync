@@ -14,10 +14,6 @@ namespace SrtSyncLib
 
             var stremWriter = new StreamWriter(novoArquivo, true);
             arquivoSRT.GravaSRT(stremWriter);
-            
         }
-
-
-
     }
 } 
